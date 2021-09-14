@@ -1,1 +1,7 @@
-(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) repo token
+(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) repo token
+
+git sned functions:
+	git add .
+	git commit -m "kommentaar"
+	git push
+
