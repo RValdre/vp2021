@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+	<meta charset="utf-8">
+	<title>Ragnar's webpage</title>
+	<style>
+		p {
+			color: rgb(209, 209, 209);
+		}
+
+		h1 {
+			color: rgb(209, 209, 209);
+		}
+
+		body {
+			background-color: rgb(54, 54, 54);
+		}
+
+		.centered-box {
+			background-color: rgb(54, 54, 54);
+			padding: 30px;
+		}
+
+		.joke {
+			margin: 0 auto;
+			border: limegreen 5px solid;
+			height: 100px;
+			width: 50%;
+			background-color: rgb(50, 50, 50);
+			text-align: center;
+		}
+
+		.box {
+			text-align: center;
+			height: 80px;
+			/*Flex mudel*/
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.joke::after {
+			content: "* * *";
+			color: red;
+			font-size: 1.2em;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 style="text-align: center;">Ragnari veebileht</h1>
+	<div class="centered-box">
+		<div class="joke">
+			<div class="box">
+				<p>Did you hear about the claustrophobic astronaut? <br> He just needed a little space.</p>
+			</div>
+		</div>
+		<div class="joke">
+			<div class="box">
+				<p>Yesterday I saw a guy spill all his Scrabble letters on the road. <br> I asked him, “What’s the word
+					on
+					the street?”</p>
+			</div>
+		</div>
+		<div class="joke">
+			<div class="box">
+				<p>How does a non-binary samurai kill people? <br> They/Them.</p>
+
+			</div>
+		</div>
+	</div>
+	<img src="comedy.jpg" alt="comedy" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
+	<p style="text-align: center;">Õppetöö toimub <a href="https://www.tlu.ee/dt">Tallinna Ülikooli Digitehnoloogia
+			Instituudis</a>.</p>
+	<p style="text-align: center;">See leht on valminud õppetöö raames ja ei sisalda mingit tõsiseltvõetavat sisu!</p>
+
+</body>
+
+</html>
