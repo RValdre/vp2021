@@ -11,13 +11,13 @@ $today_adjective_error = null;
 $todays_adjective = null;
 //kontrollin kas kasutaja klikkkis submit nuppu
 if (isset($_POST["submit_todays_adjective"])) {
-	//echo "klikiti nuppu!" ;
-	if (!empty($_POST["todays_adjective_input"])){
-	$today_html = "<p> Tänane päev on " . $_POST["todays_adjective_input"] . "</p>";
-	$todays_adjective = $_POST["todays_adjective_input"];
-	} else {
-		$today_adjective_error = "Palun kirjutage tänase kohta omadussõna !";
-	}
+    //echo "klikiti nuppu!" ;
+    if (!empty($_POST["todays_adjective_input"])) {
+        $today_html = "<p> Tänane päev on " . $_POST["todays_adjective_input"] . "</p>";
+        $todays_adjective = $_POST["todays_adjective_input"];
+    } else {
+        $today_adjective_error = "Palun kirjutage tänase kohta omadussõna !";
+    }
 }
 
 //Lisan lehele juhusliku foto
@@ -57,16 +57,33 @@ $photo_list_html = "<ul> \n";
 //<li>pildifailn.jpg</li>
 //</ul>
 
-for ($i = 0; $i < $file_count; $i ++){
-	$photo_list_html .= "<li>" . $all_photos[$i] . "</li> \n"; 
+for ($i = 0; $i < $file_count; $i++) {
+    $photo_list_html .= "<li>" . $all_photos[$i] . "</li> \n";
 }
 $photo_list_html .= "</ul> \n";
-
+$foto_placeholder =  '<option value="">Vali foto!</option>';
 $photo_select_html = '<select name="photo_select">' . "/n";
-for ($i = 0; $i < $file_count; $i ++){
-	$photo_select_html .= '<option value="' . $i . '">' . $all_photos[$i] . "</option> \n" ; 
+$photo_select_html .= $foto_placeholder;
+for ($i = 0; $i < $file_count; $i++) {
+    $photo_select_html .= '<option value="' . ($i) . '">' . $all_photos[$i] . "</option> \n";
 }
 $photo_select_html .= '</select>';
+
+$picture_select = null;
+$foto_html = '';
+$pildi_all = null;
+
+
+if (isset($_POST["submit_foto"])) {
+    if ($_POST["photo_select"] != '') {
+        $picture_select = $_POST["photo_select"];
+        $foto_html = '<img src="' . $photo_dir . $all_photos[$picture_select] . '" alt="Tallinna Ülikool" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">';
+        $pildi_all = "<p style='text-align: center;'> Valitud pildi nimi on  " . $all_photos[$picture_select] . "</p>";
+    } else {
+        $foto_html = '<img src="' . $photo_dir . $all_photos[$photo_num] . '" alt="Tallinna Ülikool" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">';
+        $pildi_all = "<p style='text-align: center;'> Valitud pildi nimi on  " . $all_photos[$photo_num] . "</p>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="et">
@@ -144,20 +161,25 @@ $photo_select_html .= '</select>';
             Instituudis</a>.</p>
     <p style="text-align: center;">See leht on valminud õppetöö raames ja ei sisalda mingit tõsiseltvõetavat sisu!</p>
     <hr>
-	<!--ekraanivorm-->
-	<form method="POST" style="text-align: center;">
-		<input type="text" name="todays_adjective_input" placeholder="Tänase päeva ilma omadus" value='<?php echo $todays_adjective; ?>'>
-		<input type="submit" name="submit_todays_adjective" value="Saada ära">
-		<span><?php echo $today_adjective_error; ?></span>
-	</form>
-	<span style="text-align: center;"><?php echo $today_html; ?></span>
-	<hr>
-	<form method="POST" style="text-align: center;">
-		<?php echo $photo_select_html; ?>
-	</form>
-    <span style="text-align: center;"><?php echo $photo_html; echo $photo_list_html;
-	
-	?></span>
+    <!--ekraanivorm-->
+    <form method="POST" style="text-align: center;">
+        <input type="text" name="todays_adjective_input" placeholder="Tänase päeva ilma omadus"
+            value='<?php echo $todays_adjective; ?>'>
+        <input type="submit" name="submit_todays_adjective" value="Saada ära">
+        <span><?php echo $today_adjective_error; ?></span>
+    </form>
+    <span style="text-align: center;"><?php echo $today_html; ?></span>
+    <hr>
+    <form method="POST" style="text-align: center;">
+        <?php echo $photo_select_html; ?>
+        <input type="submit" name="submit_foto" value="Vali foto">
+    </form>
+    <span><?php echo $foto_html; ?></span>
+    <span><?php echo $pildi_all; ?></span>
+
+
+
+
 
 
 </body>
