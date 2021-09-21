@@ -176,6 +176,7 @@ if (isset($_POST["submit_foto"])) {
     </form>
     <span><?php echo $foto_html; ?></span>
     <span><?php echo $pildi_all; ?></span>
+	<span><?php echo $photo_list_html; ?></span>
 
 
 
