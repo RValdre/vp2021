@@ -1,4 +1,4 @@
-(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) repo token
+(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) repo token
 
 git sned functions:
 	git add .

@@ -92,46 +92,46 @@ if (isset($_POST["submit_foto"])) {
     <meta charset="utf-8">
     <title><?php echo $author_name ?> webpage</title>
     <style>
-    p {
-        color: rgb(209, 209, 209);
-    }
+        p {
+            color: rgb(209, 209, 209);
+        }
 
-    h1 {
-        color: rgb(209, 209, 209);
-    }
+        h1 {
+            color: rgb(209, 209, 209);
+        }
 
-    body {
-        background-color: rgb(54, 54, 54);
-    }
+        body {
+            background-color: rgb(54, 54, 54);
+        }
 
-    .centered-box {
-        background-color: rgb(54, 54, 54);
-        padding: 30px;
-    }
+        .centered-box {
+            background-color: rgb(54, 54, 54);
+            padding: 30px;
+        }
 
-    .joke {
-        margin: 0 auto;
-        border: limegreen 5px solid;
-        height: 100px;
-        width: 50%;
-        background-color: rgb(50, 50, 50);
-        text-align: center;
-    }
+        .joke {
+            margin: 0 auto;
+            border: limegreen 5px solid;
+            height: 100px;
+            width: 50%;
+            background-color: rgb(50, 50, 50);
+            text-align: center;
+        }
 
-    .box {
-        text-align: center;
-        height: 80px;
-        /*Flex mudel*/
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+        .box {
+            text-align: center;
+            height: 80px;
+            /*Flex mudel*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .joke::after {
-        content: "* * *";
-        color: red;
-        font-size: 1.2em;
-    }
+        .joke::after {
+            content: "* * *";
+            color: red;
+            font-size: 1.2em;
+        }
     </style>
 </head>
 
@@ -163,8 +163,7 @@ if (isset($_POST["submit_foto"])) {
     <hr>
     <!--ekraanivorm-->
     <form method="POST" style="text-align: center;">
-        <input type="text" name="todays_adjective_input" placeholder="Tänase päeva ilma omadus"
-            value='<?php echo $todays_adjective; ?>'>
+        <input type="text" name="todays_adjective_input" placeholder="Tänase päeva ilma omadus" value='<?php echo $todays_adjective; ?>'>
         <input type="submit" name="submit_todays_adjective" value="Saada ära">
         <span><?php echo $today_adjective_error; ?></span>
     </form>
@@ -176,7 +175,7 @@ if (isset($_POST["submit_foto"])) {
     </form>
     <span><?php echo $foto_html; ?></span>
     <span><?php echo $pildi_all; ?></span>
-	<span><?php echo $photo_list_html; ?></span>
+    <!--<span><?php echo $photo_list_html; ?></span>-->
 
 
 
